@@ -1,23 +1,23 @@
-package com.example.newstesttask.repository.models
+package com.example.newstesttask.domain.models
 
-data class NewsData(
-        val articles: List<Article>?,
+data class NewsDataDomain(
+        val articles: List<ArticleDomain>?,
         val status: String?,
         val totalResults: Int?
 )
 
-data class Article(
+data class ArticleDomain(
         val author: String?,
         val content: String?,
         val description: String?,
         val publishedAt: String?,
-        val source: Source?,
+        val source: SourceDomain?,
         val title: String?,
         val url: String?,
         val urlToImage: String?
 )
 
-data class Source(
+data class SourceDomain(
         val id: String?,
         val name: String?
 )

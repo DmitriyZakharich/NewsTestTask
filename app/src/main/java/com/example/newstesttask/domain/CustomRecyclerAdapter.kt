@@ -7,11 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newstesttask.R
+import com.example.newstesttask.domain.models.ArticleDomain
 import com.example.newstesttask.repository.models.Article
 import com.google.android.material.imageview.ShapeableImageView
 import com.squareup.picasso.Picasso
 
-class CustomRecyclerAdapter(private val articles: List<Article>) :
+class CustomRecyclerAdapter(private val articles: List<ArticleDomain>?) :
     RecyclerView.Adapter<CustomRecyclerAdapter.MyViewHolder>() {
 
     private val picasso = Picasso.get()
@@ -27,26 +28,26 @@ class CustomRecyclerAdapter(private val articles: List<Article>) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.textViewTitle.text = articles[position].title
 
-        val maxDescriptionLength = 100
-        val description = articles[position].description
+        articles?.let {
+            holder.textViewTitle.text = articles[position].title
 
-        if (!description.isNullOrEmpty()) {
-            holder.textViewDescription.text =
-                if (description.length >= maxDescriptionLength) description.substring(0,
-                    maxDescriptionLength).plus("...")
-                else description
+            val maxDescriptionLength = 100
+            val description = articles[position].description
+
+            if (!description.isNullOrEmpty()) {
+                holder.textViewDescription.text =
+                    if (description.length >= maxDescriptionLength) description.substring(0,
+                        maxDescriptionLength).plus("...")
+                    else description
+            }
+            picasso.load(articles[position].urlToImage).into(holder.imageView)
         }
-        picasso.load(articles[position].urlToImage).into(holder.imageView)
 
-
-
-//        ShapeableImageView
 
     }
 
-    override fun getItemCount() = articles.size
+    override fun getItemCount() = articles?.size ?: 0
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textViewTitle: TextView = itemView.findViewById(R.id.textView_title)
