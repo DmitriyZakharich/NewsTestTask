@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newstesttask.R
 import com.example.newstesttask.repository.models.Article
+import com.google.android.material.imageview.ShapeableImageView
 import com.squareup.picasso.Picasso
 
 class CustomRecyclerAdapter(private val articles: List<Article>) :
@@ -38,6 +39,11 @@ class CustomRecyclerAdapter(private val articles: List<Article>) :
                 else description
         }
         picasso.load(articles[position].urlToImage).into(holder.imageView)
+
+
+
+//        ShapeableImageView
+
     }
 
     override fun getItemCount() = articles.size
@@ -45,6 +51,6 @@ class CustomRecyclerAdapter(private val articles: List<Article>) :
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textViewTitle: TextView = itemView.findViewById(R.id.textView_title)
         val textViewDescription: TextView = itemView.findViewById(R.id.textView_description)
-        val imageView: ImageView = itemView.findViewById(R.id.imageView)
+        val imageView: ShapeableImageView = itemView.findViewById(R.id.imageView)
     }
 }
