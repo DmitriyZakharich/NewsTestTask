@@ -27,8 +27,16 @@ class CustomRecyclerAdapter(private val articles: List<Article>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.textViewTitle.text = articles[position].title
-        holder.textViewDescription.text = articles[position].description
 
+        val maxDescriptionLength = 100
+        val description = articles[position].description
+
+        if (!description.isNullOrEmpty()) {
+            holder.textViewDescription.text =
+                if (description.length >= maxDescriptionLength) description.substring(0,
+                    maxDescriptionLength).plus("...")
+                else description
+        }
         picasso.load(articles[position].urlToImage).into(holder.imageView)
     }
 
