@@ -1,6 +1,5 @@
 package com.example.newstesttask.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.newstesttask.repository.models.NewsData

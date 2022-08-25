@@ -21,11 +21,6 @@ class ListNewsFragment : Fragment() {
     lateinit var vmFactory: ListNewsViewModelFactory
     private lateinit var viewModel: ListNewsViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_list_news, container, false)
