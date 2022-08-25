@@ -64,5 +64,8 @@ dependencies {
     implementation 'com.google.dagger:dagger:2.43.2'
     kapt 'com.google.dagger:dagger-compiler:2.43.2'
 
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.8'
+
 
 }

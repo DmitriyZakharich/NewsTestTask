@@ -13,7 +13,6 @@ class GetAdapterNewsUseCase(private val networkRepository: NetworkRepository) {
 
     init {
         networkRepository.newsData.observeForever(observer())
-
     }
 
     private fun observer() = Observer<NewsData> { data ->
