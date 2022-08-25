@@ -30,7 +30,6 @@ class CustomRecyclerAdapter(private val articles: List<Article>) :
         holder.textViewDescription.text = articles[position].description
 
         picasso.load(articles[position].urlToImage).into(holder.imageView)
-
     }
 
     override fun getItemCount() = articles.size
