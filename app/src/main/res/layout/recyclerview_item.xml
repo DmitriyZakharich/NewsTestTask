@@ -7,7 +7,7 @@
     android:paddingBottom="8dp"
     android:padding="10dp"
     android:layout_margin="10dp"
-    android:background="@color/item_background">
+    android:background="@drawable/shape_rect">
 
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:text="@string/title"
         android:textSize="20sp"
-        android:textColor="@color/grey"
+        android:textColor="@color/title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -39,19 +39,9 @@
         android:layout_height="wrap_content"
         android:text="@string/description"
         android:textSize="12sp"
-        android:textColor="@color/grey_description"
+        android:textColor="@color/description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_title" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/grey"
-        android:layout_margin="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_description" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
