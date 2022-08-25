@@ -2,9 +2,10 @@ package com.example.newstesttask.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.newstesttask.domain.GetAdapterNewsUseCase
+import com.example.newstesttask.viewmodel.interfaces.GetAdapterNewsUseCase
 
-class ListNewsViewModelFactory(private val getAdapterNewsUseCase: GetAdapterNewsUseCase) : ViewModelProvider.Factory{
+class ListNewsViewModelFactory(private val getAdapterNewsUseCase: GetAdapterNewsUseCase) :
+    ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return ListNewsViewModelImpl(getAdapterNewsUseCase) as T
     }

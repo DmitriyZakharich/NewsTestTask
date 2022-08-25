@@ -2,6 +2,7 @@ package com.example.newstesttask.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.newstesttask.domain.interfaces.NetworkRepository
 import com.example.newstesttask.repository.models.NewsData
 import retrofit2.Call
 import retrofit2.Callback
@@ -9,15 +10,15 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class NetworkRepository {
+class NetworkRepositoryImpl : NetworkRepository {
 
     private val retrofit = Retrofit.Builder().baseUrl("https://newsapi.org/v2/")
         .addConverterFactory(GsonConverterFactory.create()).build()
 
     private val _newsData = MutableLiveData<NewsData>()
-    val newsData: LiveData<NewsData> = _newsData
+    override val newsData: LiveData<NewsData> = _newsData
 
-    fun loadGithubReposList() {
+    override fun loadGithubReposList() {
         val requestApiGithubRepos = retrofit.create(RequestApiNews::class.java)
         val call = requestApiGithubRepos.getRequest()
 

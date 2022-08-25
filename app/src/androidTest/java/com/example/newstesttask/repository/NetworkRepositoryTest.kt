@@ -10,7 +10,7 @@ class NetworkRepositoryTest {
     fun loadGithubReposList() {
         println("++++++++++++++++++++++++++++++++++")
 
-        val networkRepository = NetworkRepository()
+        val networkRepository = NetworkRepositoryImpl()
         networkRepository.loadGithubReposList()
 
         println("---------------------------------------- $")

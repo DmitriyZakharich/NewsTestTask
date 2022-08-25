@@ -1,8 +1,10 @@
 package com.example.newstesttask.di
 
-import com.example.newstesttask.domain.GetAdapterNewsUseCase
-import com.example.newstesttask.repository.NetworkRepository
+import com.example.newstesttask.domain.GetAdapterNewsUseCaseImpl
+import com.example.newstesttask.domain.interfaces.NetworkRepository
+import com.example.newstesttask.repository.NetworkRepositoryImpl
 import com.example.newstesttask.viewmodel.ListNewsViewModelFactory
+import com.example.newstesttask.viewmodel.interfaces.GetAdapterNewsUseCase
 import dagger.Module
 import dagger.Provides
 
@@ -15,9 +17,10 @@ class AppModel {
         ListNewsViewModelFactory(getAdapterNewsUseCase)
 
     @Provides
-    fun provideGetAdapterNewsUseCase(networkRepository: NetworkRepository): GetAdapterNewsUseCase =
-        GetAdapterNewsUseCase(networkRepository)
+    fun provideGetAdapterNewsUseCase(
+            networkRepository: NetworkRepository): GetAdapterNewsUseCase =
+        GetAdapterNewsUseCaseImpl(networkRepository)
 
     @Provides
-    fun provideNetworkRepository(): NetworkRepository = NetworkRepository()
+    fun provideNetworkRepository(): NetworkRepository = NetworkRepositoryImpl()
 }

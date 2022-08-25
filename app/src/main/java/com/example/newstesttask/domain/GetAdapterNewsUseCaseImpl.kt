@@ -3,13 +3,15 @@ package com.example.newstesttask.domain
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.example.newstesttask.repository.NetworkRepository
+import com.example.newstesttask.domain.interfaces.NetworkRepository
+import com.example.newstesttask.repository.NetworkRepositoryImpl
 import com.example.newstesttask.repository.models.NewsData
+import com.example.newstesttask.viewmodel.interfaces.GetAdapterNewsUseCase
 
-class GetAdapterNewsUseCase(private val networkRepository: NetworkRepository) {
+class GetAdapterNewsUseCaseImpl(private val networkRepository: NetworkRepository) : GetAdapterNewsUseCase {
 
     private var _adapter: MutableLiveData<CustomRecyclerAdapter> = MutableLiveData()
-    var adapter: LiveData<CustomRecyclerAdapter> = _adapter
+    override var adapter: LiveData<CustomRecyclerAdapter> = _adapter
 
     init {
         networkRepository.newsData.observeForever(observer())
@@ -19,7 +21,7 @@ class GetAdapterNewsUseCase(private val networkRepository: NetworkRepository) {
         _adapter.value = CustomRecyclerAdapter(data.articles)
     }
 
-    fun start() {
+    override fun start() {
         networkRepository.loadGithubReposList()
     }
 }

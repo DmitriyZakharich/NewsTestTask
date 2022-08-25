@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.newstesttask.domain.CustomRecyclerAdapter
-import com.example.newstesttask.domain.GetAdapterNewsUseCase
 import com.example.newstesttask.presentation.interfaces.ListNewsViewModel
+import com.example.newstesttask.viewmodel.interfaces.GetAdapterNewsUseCase
 
 class ListNewsViewModelImpl(private val getAdapterNewsUseCase: GetAdapterNewsUseCase) : ViewModel(),
     ListNewsViewModel {
